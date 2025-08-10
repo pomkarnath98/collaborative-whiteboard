@@ -34,6 +34,8 @@ This project implements a production-oriented real-time collaborative whiteboard
 - Undo/redo implemented as ops with `type: 'undo'/'redo'` referencing target op id.
 - Presence tracked in Redis set `board:presence:<boardId>` and broadcast as `presence:list`.
 
+![Image](https://github.com/user-attachments/assets/3b620489-e97e-4ac2-ae3a-a155237c872e)
+
 ## Scaling notes
 - The server uses Socket.IO Redis adapter (pub/sub) to scale horizontally by adding Node instances.
 - MongoDB Atlas provides HA and scalability for the op store
