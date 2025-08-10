@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Collaborative Whiteboard Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #topbar {
+            padding: 8px;
+            background: #222;
+            color: #fff;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        #canvasWrap {
+            flex: 1;
+            position: relative;
+        }
+
+        canvas {
+            background: #fff;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cursor {
+            position: absolute;
+            pointer-events: none;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transform: translate(-50%, -50%);
+        }
+
+        #users {
+            color: #fff;
+            margin-left: auto;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="topbar">
+        <button id="createBtn">Create New Board</button>
+        <input id="boardIdInput" placeholder="Board ID (or create new)" />
+        <button id="joinBtn">Join</button>
+        <button id="undoBtn">Undo</button>
+        <button id="redoBtn">Redo</button>
+        <button id="clearBtn">Clear</button>
+        <div id="users">Users: <span id="userList">0</span></div>
+    </div>
+    <div id="canvasWrap">
+        <canvas id="boardCanvas"></canvas>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+
+</html>
